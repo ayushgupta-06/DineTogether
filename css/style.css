@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
+
+:root {
+  --green: #27ae60;
+  --black: #192a56;
+  --light-color: #666;
+  --box-shadow: 0 0.5em 1.5em rgba(0, 0, 0, 0.1);
+}
+
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  scroll-behavior: smooth;
+  font-size: 1em;
+  transition: 0.2s linear;
+}
+*::selection {
+  background-color: var(--green);
+  color: #eee;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--box-shadow);
+  font-size: 1em;
+  padding: 1em;
+}
+header nav a {
+  font-size: 1em;
+  padding: 0px 0.5em;
+  color: var(--light-color);
+  position: relative;
+}
+header nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -0.2em;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--green);
+  border-radius: 5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+header nav a:hover {
+  color: var(--green);
+}
+header nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+header > a {
+  color: var(--black);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+header a i {
+  color: var(--green);
+  font-size: 1.5em;
+}
+header .icons i,
+header .icons a {
+  cursor: pointer;
+  color: var(--black);
+  padding: 1em;
+  border-radius: 50%;
+  background-color: #eee;
+  transition: all 0.5s ease-out;
+}
+header .icons i:hover,
+header .icons a:hover {
+  background-color: var(--green);
+  color: #eee;
+  transform: rotate(360deg);
+}
+
+header .icons #menu-bar {
+  display: none;
+}
+
+#search-form {
+  position: fixed;
+  top: -116%;
+  right: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#search-form.active {
+  top: 0;
+}
+#search-form #search-box {
+  padding: 1em;
+  width: 40%;
+  font-size: 1em;
+  color: #eee;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+}
+#search-form #search-box::placeholder {
+  color: #eee;
+}
+#search-form #search-box::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+#search-form label {
+  cursor: pointer;
+  font-size: 2em;
+  color: #eee;
+  padding: 0.5em;
+  transition: all 0.2s;
+}
+#search-form label:hover {
+  color: var(--green);
+}
+#search-form i {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  color: #eee;
+  font-size: 3em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.loader-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader-container.fade-out {
+  top: -110%;
+  opacity: 0;
+}
+.loader-container img {
+  width: 20em;
+}
